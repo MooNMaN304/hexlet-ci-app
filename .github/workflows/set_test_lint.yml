@@ -1,10 +1,12 @@
 name: setup-test-lint
 on: push
 jobs:
-  build:
+  my-job:
     runs-on: ubuntu-latest
+
     steps:
-      - run: install build
-      - run: npx eslint .
+      - run: make setup
+      - run: make start
+      - run: make lint
       - name: run tests
-        run: npm test
+        run: make test
